@@ -12,6 +12,7 @@ Source0:	http://nafai.dyndns.org/files/imcom-betas/%{name}-%{version}%{beta}.tar
 # Source0-md5:	f2ce69c87b5f75d741b135ec26523073
 Patch0:		%{name}-ac_python_import_check.patch
 Patch1:		%{name}-DESTDIR.patch
+Patch2:		%{name}-makefile.patch
 URL:		http://imcom.floobin.cx/
 BuildRequires:	python >= 2.2.1
 BuildRequires:	rpm-pythonprov
@@ -28,6 +29,7 @@ Tekstowy klient Jabbera.
 %setup -qn %{name}-%{version}%{beta}
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__autoconf}
