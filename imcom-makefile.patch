@@ -1,0 +1,12 @@
+diff -Naur imcom-1.30beta10/Makefile.in imcom-1.30beta10.mod/Makefile.in
+--- imcom-1.30beta10/Makefile.in	Wed Jul  9 00:26:12 2003
++++ imcom-1.30beta10.mod/Makefile.in	Wed Jul  9 00:19:26 2003
+@@ -18,7 +18,7 @@
+ install-modules:
+ 	install -d -m 0755 $(DESTDIR)${datadir}/imcom
+ 	install -d -m 0755 $(DESTDIR)${datadir}/imcom/modules
+-	install -m 0644 [[:upper:]]*.py $(DESTDIR)${datadir}/imcom
++	install -m 0644 [A-Z]*.py $(DESTDIR)${datadir}/imcom
+ 	install -m 0644 modules/*.py $(DESTDIR)${datadir}/imcom/modules
+ 	install -m 0755 CLI.py LogHandler.py AccountCreator.py $(DESTDIR)${datadir}/imcom
+ 
