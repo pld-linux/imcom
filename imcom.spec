@@ -1,26 +1,28 @@
-Summary:	Command-Line Jabber client
+
+%include	/usr/lib/rpm/macros.python
+
+Summary:	Command-line Jabber client
 Summary(pl):	Tekstowy klient Jabbera
 Name:		imcom
-Version:	0.85
+Version:	0.95
 Release:	1
-License:	distributable
+License:	BSD
 Group:		Applications/Communications
 Source0:	http://imcom.floobin.cx/src/%{name}-%{version}.tar.gz
-Patch0:		%{name}-FHS.patch
-Requires:	python
 URL:		http://imcom.floobin.cx/
+BuildRequires:  python >= 2.2.1
+BuildRequires:  rpm-pythonprov
+%pyrequires_eq	python-modules
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This is User Directory module for Jabber.
+IMCom is a command-line Jabber client.
 
 %description -l pl
-Modu³ ten umo¿liwia rejestrowanie i przeszukiwanie danych o
-u¿ytkownikach systemu Jabber.
+Tekstowy klient Jabbera.
 
 %prep
-%setup -qn %{name}
-%patch0 -p1
+%setup -q
 
 %build
 %{__make}
@@ -28,16 +30,28 @@ u¿ytkownikach systemu Jabber.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name}}
-%{__make} install DESTDIR="$RPM_BUILD_ROOT"
+install -d $RPM_BUILD_ROOT{%{_bindir},%{py_sitedir}/%{name}}
+install *.py $RPM_BUILD_ROOT%{py_sitedir}/%{name}
 
-gzip -9nf CONTRIBUTORS README* LICENSE TODO WHATSNEW
+echo %{name} > $RPM_BUILD_ROOT%{py_sitedir}/%{name}.pth
+
+cat <<END > $RPM_BUILD_ROOT%{_bindir}/%{name}
+#!/bin/sh
+
+exec python -O %{py_sitedir}/%{name}/CLI.pyo
+
+END
+
+%py_comp $RPM_BUILD_ROOT%{py_sitedir}
+%py_ocomp $RPM_BUILD_ROOT%{py_sitedir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz *.html
+%doc *.html CONTRIBUTORS README* LICENSE TODO WHATSNEW
 %attr(755,root,root) %{_bindir}/*
-%{_datadir}/*
+%dir %{py_sitedir}/%{name}
+%{py_sitedir}/%{name}/*.py[co]
+%{py_sitedir}/%{name}.pth
