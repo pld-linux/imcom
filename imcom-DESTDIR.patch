@@ -1,32 +1,38 @@
-diff -aurN imcom-1.30beta9.orig/Makefile.in imcom-1.30beta9/Makefile.in
---- imcom-1.30beta9.orig/Makefile.in	2003-05-21 04:36:37.000000000 +0200
-+++ imcom-1.30beta9/Makefile.in	2003-06-22 14:43:16.000000000 +0200
-@@ -8,17 +8,17 @@
- 	chmod +x imcom CLI.py LogHandler.py AccountCreator.py
+diff -aurN imcom-1.30beta10.orig/Makefile.in imcom-1.30beta10/Makefile.in
+--- imcom-1.30beta10.orig/Makefile.in	2003-06-25 02:20:38.000000000 +0200
++++ imcom-1.30beta10/Makefile.in	2003-07-07 17:36:06.000000000 +0200
+@@ -12,22 +12,22 @@
+ install: install-bin install-doc
  
- install: all
+ install-bin: install-modules
+-	install -d -m 0755 ${bindir}
+-	install -m 0755 imcom ${bindir}
++	install -d -m 0755 $(DESTDIR)${bindir}
++	install -m 0755 imcom $(DESTDIR)${bindir}
+ 
+ install-modules:
 -	install -d -m 0755 ${datadir}/imcom
 -	install -d -m 0755 ${datadir}/imcom/modules
--	install -d -m 0755 ${datadir}/imcom/docs
--	install -d -m 0755 ${bindir}
--	install -d -m 0755 ${mandir}/man1/
--	install -m 0755 *.py ${datadir}/imcom
--	install -m 0755 modules/*.py ${datadir}/imcom/modules
--	install -m 0755 docs/*.html ${datadir}/imcom/docs
--	install -m 0755 CONTRIBUTORS LICENSE README README.autostatus TODO WHATSNEW ${datadir}/imcom/docs
--	install -m 0755 imcom ${bindir}
--	install -m 0755 docs/imcom.1 ${mandir}/man1/imcom.1
+-	install -m 0644 [[:upper:]]*.py ${datadir}/imcom
+-	install -m 0644 modules/*.py ${datadir}/imcom/modules
+-	install -m 0755 CLI.py LogHandler.py AccountCreator.py ${datadir}/imcom
 +	install -d -m 0755 $(DESTDIR)${datadir}/imcom
 +	install -d -m 0755 $(DESTDIR)${datadir}/imcom/modules
-+	install -d -m 0755 $(DESTDIR)${datadir}/imcom/docs
-+	install -d -m 0755 $(DESTDIR)${bindir}
-+	install -d -m 0755 $(DESTDIR)${mandir}/man1/
-+	install -m 0755 *.py $(DESTDIR)${datadir}/imcom
-+	install -m 0755 modules/*.py $(DESTDIR)${datadir}/imcom/modules
-+	install -m 0755 docs/*.html $(DESTDIR)${datadir}/imcom/docs
-+	install -m 0755 CONTRIBUTORS LICENSE README README.autostatus TODO WHATSNEW $(DESTDIR)${datadir}/imcom/docs
-+	install -m 0755 imcom $(DESTDIR)${bindir}
++	install -m 0644 [[:upper:]]*.py $(DESTDIR)${datadir}/imcom
++	install -m 0644 modules/*.py $(DESTDIR)${datadir}/imcom/modules
++	install -m 0755 CLI.py LogHandler.py AccountCreator.py $(DESTDIR)${datadir}/imcom
+ 
+ install-doc:
+-	install -d -m 0755 ${docdir}
+-	install -d -m 0755 ${mandir}/man1
+-	install -m 0755 docs/*.html ${docdir}
+-	install -m 0755 CONTRIBUTORS LICENSE README README.autostatus TODO WHATSNEW ${docdir}
+-	install -m 0755 docs/imcom.1 ${mandir}/man1/imcom.1
++	install -d -m 0755 $(DESTDIR)${docdir}
++	install -d -m 0755 $(DESTDIR)${mandir}/man1
++	install -m 0755 docs/*.html $(DESTDIR)${docdir}
++	install -m 0755 CONTRIBUTORS LICENSE README README.autostatus TODO WHATSNEW $(DESTDIR)${docdir}
 +	install -m 0755 docs/imcom.1 $(DESTDIR)${mandir}/man1/imcom.1
  
- install-docs: install
  
+ uninstall:
