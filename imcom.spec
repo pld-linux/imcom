@@ -1,18 +1,16 @@
 
-%define		beta beta10
 %include	/usr/lib/rpm/macros.python
 Summary:	Command-line Jabber client
 Summary(pl):	Tekstowy klient Jabbera
 Name:		imcom
-Version:	1.30
-Release:	1.%{beta}
+Version:	1.31
+Release:	0
 License:	BSD
 Group:		Applications/Communications
-Source0:	http://nafai.dyndns.org/files/imcom-betas/%{name}-%{version}%{beta}.tar.gz
-# Source0-md5:	f2ce69c87b5f75d741b135ec26523073
+Source0:	http://nafai.dyndns.org/files/%{name}-%{version}.tar.gz
+# Source0-md5:	39e910c77d696ea3b607ec34f113b93b
 Patch0:		%{name}-ac_python_import_check.patch
 Patch1:		%{name}-DESTDIR.patch
-Patch2:		%{name}-makefile.patch
 URL:		http://imcom.floobin.cx/
 BuildRequires:	python >= 2.2.1
 BuildRequires:	rpm-pythonprov
@@ -26,10 +24,9 @@ IMCom is a command-line Jabber client.
 Tekstowy klient Jabbera.
 
 %prep
-%setup -qn %{name}-%{version}%{beta}
+%setup -qn %{name}-%{version}
 %patch0 -p1
 %patch1 -p1
-%patch2 -p1
 
 %build
 %{__autoconf}
@@ -55,7 +52,9 @@ rm -rf $RPM_BUILD_ROOT
 %doc CONTRIBUTORS README* LICENSE TODO WHATSNEW docs
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/%{name}
+%dir %{_datadir}/%{name}/modules
 %{_datadir}/%{name}/*.py[co]
+%{_datadir}/%{name}/modules/*.py[co]
 %attr(755,root,root) %{_datadir}/%{name}/CLI.py
 %attr(755,root,root) %{_datadir}/%{name}/AccountCreator.py
 %{_mandir}/man1/%{name}*
