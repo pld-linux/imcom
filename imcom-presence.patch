@@ -1,0 +1,26 @@
+--- imcom-1.33/IMCom.py~	2004-04-30 20:18:36.000000000 +0200
++++ imcom-1.33/IMCom.py	2005-03-11 09:52:38.233671696 +0100
+@@ -618,7 +618,7 @@
+ 
+     def sendPriority(self, priority):
+         self.priority = priority
+-        tosend = "<presence type='available'>"\
++        tosend = "<presence>"\
+                  "<show>"+self.currentStatus+"</show>"\
+                  "<priority>"+str(priority)+"</priority>"
+         if(self.currentStatusReason != None or self.currentStatusReason != ""):
+@@ -640,12 +640,12 @@
+         self.currentStatus = "online"
+         self.currentStatusReason = reason
+         if(reason == None):
+-            tosend = "<presence type='available'>"\
++            tosend = "<presence>"\
+                      "<show>online</show>"\
+                      "<priority>"+priority+"</priority>"\
+                      "</presence>"
+         else:
+-            tosend = "<presence type='available'>"\
++            tosend = "<presence>"\
+                      "<show>online</show><status>"+self.normalize(reason)+"</status>"\
+                      "<priority>"+priority+"</priority>"\
+                      "</presence>"
