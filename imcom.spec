@@ -1,5 +1,4 @@
 
-%include	/usr/lib/rpm/macros.python
 
 Summary:	Command-line Jabber client
 Summary(pl):	Tekstowy klient Jabbera
