@@ -14,7 +14,7 @@ Patch1:		%{name}-DESTDIR.patch
 URL:		http://imcom.floobin.cx/
 BuildRequires:	autoconf
 BuildRequires:	python >= 2.2.1
-BuildRequires:	rpm-pythonprov
+BuildRequires:	rpm-pythonprov >= 4.2-0.20030322.3
 %pyrequires_eq	python-modules
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
