@@ -1,16 +1,15 @@
 
+%define		beta beta10
 %include	/usr/lib/rpm/macros.python
-
 Summary:	Command-line Jabber client
 Summary(pl):	Tekstowy klient Jabbera
 Name:		imcom
 Version:	1.30
-%define	beta	beta9
-Release:	0.%{beta}
+Release:	1.%{beta}
 License:	BSD
 Group:		Applications/Communications
 Source0:	http://nafai.dyndns.org/files/imcom-betas/%{name}-%{version}%{beta}.tar.gz
-# Source0-md5:	32110b6e7aca090de38635ecba43b85c
+# Source0-md5:	f2ce69c87b5f75d741b135ec26523073
 Patch0:		%{name}-ac_python_import_check.patch
 Patch1:		%{name}-DESTDIR.patch
 URL:		http://imcom.floobin.cx/
@@ -35,6 +34,8 @@ Tekstowy klient Jabbera.
 %configure
 %{__make}
 
+rm -f docs/CHANGELOG
+
 %install
 rm -rf $RPM_BUILD_ROOT
 
@@ -43,14 +44,13 @@ rm -rf $RPM_BUILD_ROOT
 rm -rf $RPM_BUILD_ROOT%{_datadir}/%{name}/docs
 
 %{py_comp} $RPM_BUILD_ROOT%{_datadir}/%{name}
-#rm -f $RPM_BUILD_ROOT%{_datadir}/%{name}/*.py
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.html CONTRIBUTORS README* LICENSE TODO WHATSNEW docs
+%doc CONTRIBUTORS README* LICENSE TODO WHATSNEW docs
 %attr(755,root,root) %{_bindir}/*
 %dir %{_datadir}/%{name}
 %{_datadir}/%{name}/*.py[co]
