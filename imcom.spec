@@ -4,12 +4,12 @@
 Summary:	Command-line Jabber client
 Summary(pl):	Tekstowy klient Jabbera
 Name:		imcom
-Version:	1.32
+Version:	1.33
 Release:	0.1
 License:	BSD
 Group:		Applications/Communications
 Source0:	http://nafai.dyndns.org/files/%{name}-%{version}.tar.gz
-# Source0-md5:	fad725be0e61f9227d0181409ba8bc06
+# Source0-md5:	37258996233ba8a3a3bdcbab179adf70
 Patch0:		%{name}-ac_python_import_check.patch
 Patch1:		%{name}-DESTDIR.patch
 URL:		http://imcom.floobin.cx/
@@ -45,6 +45,7 @@ rm -rf $RPM_BUILD_ROOT%{_datadir}/%{name}/docs
 rm -f docs/CHANGELOG docs/imcom.1
 
 %{py_comp} $RPM_BUILD_ROOT%{_datadir}/%{name}
+%{py_ocomp} $RPM_BUILD_ROOT%{_datadir}/%{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
