@@ -8,7 +8,7 @@ Version:	0.95
 Release:	1
 License:	BSD
 Group:		Applications/Communications
-Source0:	http://imcom.floobin.cx/src/%{name}-%{version}.tar.gz
+Source0:	http://imcom.floobin.cx/files/%{name}-%{version}.tar.gz
 URL:		http://imcom.floobin.cx/
 BuildRequires:	python >= 2.2.1
 BuildRequires:	rpm-pythonprov
