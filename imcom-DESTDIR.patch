@@ -13,12 +13,12 @@ diff -aurN imcom-1.30beta10.orig/Makefile.in imcom-1.30beta10/Makefile.in
  install-modules:
 -	install -d -m 0755 ${datadir}/imcom
 -	install -d -m 0755 ${datadir}/imcom/modules
--	install -m 0644 [[:upper:]]*.py ${datadir}/imcom
+-	install -m 0644 *.py ${datadir}/imcom
 -	install -m 0644 modules/*.py ${datadir}/imcom/modules
 -	install -m 0755 CLI.py LogHandler.py AccountCreator.py ${datadir}/imcom
 +	install -d -m 0755 $(DESTDIR)${datadir}/imcom
 +	install -d -m 0755 $(DESTDIR)${datadir}/imcom/modules
-+	install -m 0644 [[:upper:]]*.py $(DESTDIR)${datadir}/imcom
++	install -m 0644 *.py $(DESTDIR)${datadir}/imcom
 +	install -m 0644 modules/*.py $(DESTDIR)${datadir}/imcom/modules
 +	install -m 0755 CLI.py LogHandler.py AccountCreator.py $(DESTDIR)${datadir}/imcom
  
