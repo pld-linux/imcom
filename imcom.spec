@@ -3,7 +3,7 @@ Summary:	Command-line Jabber client
 Summary(pl):	Tekstowy klient Jabbera
 Name:		imcom
 Version:	1.33
-Release:	2
+Release:	3
 License:	BSD
 Group:		Applications/Communications
 Source0:	http://nafai.dyndns.org/files/%{name}-%{version}.tar.gz
@@ -14,6 +14,7 @@ URL:		http://imcom.floobin.cx/
 BuildRequires:	autoconf
 BuildRequires:	rpm-pythonprov >= 4.2-0.20030322.3
 %pyrequires_eq	python-modules
+Requires:	python
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
