@@ -1,0 +1,29 @@
+diff -durN imcom.orig/Makefile imcom/Makefile
+--- imcom.orig/Makefile	Mon Sep 24 23:30:21 2001
++++ imcom/Makefile	Sat Dec 22 12:54:04 2001
+@@ -1,10 +1,10 @@
+ all:
+ 
+ install:
+-	mkdir -p /usr/local/share/imcom
+-	cp *.py /usr/local/share/imcom
+-	cp imcom /usr/local/bin
++	mkdir -p $(DESTDIR)/usr/share/imcom
++	cp *.py $(DESTDIR)/usr/share/imcom
++	cp imcom $(DESTDIR)/usr/bin
+ 
+ uninstall:
+-	rm -rf /usr/local/share/imcom
+-	rm -f /usr/local/bin/imcom
++	rm -rf $(DESTDIR)/usr/share/imcom
++	rm -f $(DESTDIR)/usr/bin/imcom
+diff -durN imcom.orig/imcom imcom/imcom
+--- imcom.orig/imcom	Mon Jul  9 23:37:39 2001
++++ imcom/imcom	Sat Dec 22 12:56:56 2001
+@@ -1,4 +1,4 @@
+ #!/bin/sh
+ 
+-export PATH="/usr/local/share/imcom:${PATH}"
+-CLI.py
++export PATH="/usr/share/imcom:${PATH}"
++exec python /usr/share/imcom/CLI.py
