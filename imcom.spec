@@ -10,8 +10,8 @@ License:	BSD
 Group:		Applications/Communications
 Source0:	http://imcom.floobin.cx/src/%{name}-%{version}.tar.gz
 URL:		http://imcom.floobin.cx/
-BuildRequires:  python >= 2.2.1
-BuildRequires:  rpm-pythonprov
+BuildRequires:	python >= 2.2.1
+BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-modules
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
