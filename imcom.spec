@@ -13,7 +13,6 @@ Patch1:		%{name}-DESTDIR.patch
 Patch2:		%{name}-presence.patch
 URL:		http://imcom.floobin.cx/
 BuildRequires:	autoconf
-BuildRequires:	rpm-pythonprov >= 4.2-0.20030322.3
 %pyrequires_eq	python-modules
 Requires:	python
 BuildArch:	noarch
