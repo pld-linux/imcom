@@ -1,0 +1,18 @@
+diff -durN imcom-1.30beta8.orig/aclocal.m4 imcom-1.30beta8/aclocal.m4
+--- imcom-1.30beta8.orig/aclocal.m4	Thu Nov 14 06:35:38 2002
++++ imcom-1.30beta8/aclocal.m4	Tue Apr 22 21:51:43 2003
+@@ -23,11 +23,9 @@
+         ac_cv_py_have_$1=true;
+    fi
+ else
+-   for d in $PY_LIB_PATH; do
+-        if [[ -e $d/$1.py ]] || [[ -e $d/$1.so ]]; then
+-             ac_cv_py_have_$1=true;
+-        fi
+-   done
++   if python -c "import $1"; then
++        ac_cv_py_have_$1=true;
++   fi
+ fi
+    
+ AC_MSG_RESULT([$ac_cv_py_have_$1])
