@@ -17,6 +17,7 @@ BuildRequires:	autoconf
 BuildRequires:	python >= 2.2.1
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-modules
+BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
