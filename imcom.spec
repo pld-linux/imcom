@@ -5,8 +5,6 @@ Version:	0.85
 Release:	1
 License:	distributable
 Group:		Applications/Communications
-Group(de):	Applikationen/Kommunikation
-Group(pl):	Aplikacje/Komunikacja
 Source0:	http://imcom.floobin.cx/src/%{name}-%{version}.tar.gz
 Patch0:		%{name}-FHS.patch
 Requires:	python
