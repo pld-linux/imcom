@@ -12,18 +12,18 @@ URL:		http://imcom.floobin.cx/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-This is User Directory module for Jabber. 
+This is User Directory module for Jabber.
 
 %description -l pl
-Modu³ ten umo¿liwia rejestrowanie i przeszukiwanie danych o u¿ytkownikach
-systemu Jabber.
+Modu³ ten umo¿liwia rejestrowanie i przeszukiwanie danych o
+u¿ytkownikach systemu Jabber.
 
 %prep
 %setup -qn %{name}
 %patch0 -p1
 
 %build
-%{__make} 
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
