@@ -1,10 +1,11 @@
 
 %include	/usr/lib/rpm/macros.python
+
 Summary:	Command-line Jabber client
 Summary(pl):	Tekstowy klient Jabbera
 Name:		imcom
 Version:	1.31
-Release:	0
+Release:	0.1
 License:	BSD
 Group:		Applications/Communications
 Source0:	http://nafai.dyndns.org/files/%{name}-%{version}.tar.gz
@@ -12,6 +13,7 @@ Source0:	http://nafai.dyndns.org/files/%{name}-%{version}.tar.gz
 Patch0:		%{name}-ac_python_import_check.patch
 Patch1:		%{name}-DESTDIR.patch
 URL:		http://imcom.floobin.cx/
+BuildRequires:	autoconf
 BuildRequires:	python >= 2.2.1
 BuildRequires:	rpm-pythonprov
 %pyrequires_eq	python-modules
@@ -24,7 +26,7 @@ IMCom is a command-line Jabber client.
 Tekstowy klient Jabbera.
 
 %prep
-%setup -qn %{name}-%{version}
+%setup -q
 %patch0 -p1
 %patch1 -p1
 
@@ -33,14 +35,14 @@ Tekstowy klient Jabbera.
 %configure
 %{__make}
 
-rm -f docs/CHANGELOG
-
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 rm -rf $RPM_BUILD_ROOT%{_datadir}/%{name}/docs
+rm -f docs/CHANGELOG docs/imcom.1
 
 %{py_comp} $RPM_BUILD_ROOT%{_datadir}/%{name}
 
