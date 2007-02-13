@@ -1,6 +1,6 @@
 
 Summary:	Command-line Jabber client
-Summary(pl.UTF-8):   Tekstowy klient Jabbera
+Summary(pl.UTF-8):	Tekstowy klient Jabbera
 Name:		imcom
 Version:	1.33
 Release:	4
